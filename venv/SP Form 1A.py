@@ -65,12 +65,31 @@ def assignment_1a_5(lst):
                 print(lst_sorted)
                 switch = True
     return lst_sorted
+
 def assignment_1a_6(lst):
     total = sum(lst)
     indices = len(lst)
     average = total / indices
     return average
 
-def assignment_1a_8():
-    with open("compressie") as textfile:
+def assignment_1a_7():
+    from random import randint
+    input_number = int(input('Voer hier een getal in als bereik:\n'))
+    number = randint(0, input_number)
+    while True:
+        guess = int(input('Raad het getal:\n'))
+        if input_number == number:
+            print('Goed!')
+        else:
+            print('Fout!')
 
+def assignment_1a_8():
+    with open("compressie", "r") as textfile:
+        text = textfile.readlines()
+        for i in text:
+            i.strip()
+            print(i)
+        textfile.close()
+# assignment_1a_8()
+
+def assignment_1a_9():
