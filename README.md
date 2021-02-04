@@ -1,10 +1,8 @@
-
-
 # Setup Mastermind
 Divide game modes into modules:
-module 1: game rules; max amount of tries, range of numbers, length of row on board. 
-module 2: game modes; AI vs player, player vs AI
-module 3: base functions; code generator, guess
+module 1: base functions; code generator, guess
+module 2: game rules; max amount of tries, range of numbers, length of row on board. 
+module 3: game modes; AI vs player, player vs AI
 Module 4: strategies
 
 define function generate Code:
