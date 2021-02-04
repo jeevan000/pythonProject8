@@ -1,9 +1,3 @@
-Sources:Boss, R. (2021, 19 januari). HU Structured Programming - Mastermind. Youtube. https://www.youtube.com/watch?v=rSzX2TtjvHA&feature=youtu.be
-       :Kooi, B. (2005). YET ANOTHER MASTERMIND STRATEGY. ICGA Journal, 28(1), 13–20. https://doi.org/10.3233/icg-2005-28105
-
-Libraries used: 
-random
-
 
 
 # Setup Mastermind
@@ -33,3 +27,10 @@ define function to give feedback using input and randomly generated code; take i
   if so: return 2 for each corresponding number with correct position.
   if not entirely correct: return 1 for each corresponding number with incorrect position.
   if entirely incorrect: return 0 for each completely incorrect number.
+
+Sources:Boss, R. (2021, 19 januari). HU Structured Programming - Mastermind. Youtube. https://www.youtube.com/watch?v=rSzX2TtjvHA&feature=youtu.be
+       :Kooi, B. (2005). YET ANOTHER MASTERMIND STRATEGY. ICGA Journal, 28(1), 13–20. https://doi.org/10.3233/icg-2005-28105
+
+Libraries used: 
+random
+
