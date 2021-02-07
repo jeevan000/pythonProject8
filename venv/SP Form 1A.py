@@ -91,5 +91,9 @@ def assignment_1a_8():
             print(i)
         textfile.close()
 # assignment_1a_8()
+ch = '10101000'
+# def assignment_1a_9(ch, n):
 
-def assignment_1a_9():
+# def caesar: string alfabet indexen optellen
+
+# def fizzbuzz: modulo 3 modulo 5 modulo 3 en 5
