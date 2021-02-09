@@ -1,32 +1,63 @@
+import random
+import itertools
+# valid_chars = ['0', '1', '2', '3', '4', '5']
+# all_combinations = (list(itertools.product(valid_chars, repeat=4)))
+# all_combinations = [list(i) for i in all_combinations]
+# print(all_combinations[1295])
 def generate_random_code():
-    from random import randint
-    # code_answer = [] # Create list to insert randomly chosen numbers into
+    code_answer = [] # Create list to insert all possibilities into
+
     for i in range(0, 4): #----->  loop to utilize random method 4 times
-        number = str(randint(0, 5)) #-----> Pick a random number between 0 - 3 to signify colours
-        # code_answer.append(number)
-    type(number)
-    return print(number)
-
-    # return code_answer
-    # generate_random_code()
-def guess_code():
-    code_answer = generate_random_code()
+        number = str(random.randint(0, 5)) #-----> Pick a random number between 0 - 5 to signify colours
+        code_answer.append(number)
     print(code_answer)
-    input_code = (input("Enter your guess:"))
+    # print(range(len(code_answer[0])))
+    return code_answer
+# generate_random_code()
 
-    if input_code == code_answer: #------ compare input to auto-generated code
+guess = ['3223']
+def check_guess(code_answer, guess):
+    # input_code = list(input("Enter your guess:"))
+    # print(input_code)
+    if code_answer == guess: #------ compare input to auto-generated code
         print("Congratulations, you've guessed the code!")
-    else:
-        # feedback()
-        # print(input_code)
-        return input_code
-guess_code()
-def feedback():
-    feedback_pins = {black: 0,
-                     white: 0}
+    else: #>>>>>>>>>>>>>>> This else statement provides feedback for wrong answers
+        # colour_numbers = ['0', '1', '2', '3', '4', '5']
+        all_possibilities = []
+        for i in range(0, 6):
+            for j in range(0, 6):
+                for x in range(0, 6):
+                    for y in range(0, 6):
+                        all_possibilities.append(str(i) + str(j) + str(x) + str(y))
+        print(range(len(all_possibilities[0])))
+        black, white = 0, 0
 
-    # generate_random_code()
-    # if statement voor pinkleuren met for loop
+        """ Create two more lists to store the individual numbers of the code_answer and the guess in to compare
+        step by step if the codes are aligned"""
+        list_guess = []
+        list_code_answer = []
+        for i in range(len(all_possibilities[0])):
+            if guess[i] == code_answer[i]:
+                black += 1
+            else:
+                list_guess.append(guess[i])
+                list_code_answer.append(code_answer[i])
+        print(list_guess)
+        print(list_code_answer)
+
+        # for i in all_possibilities:
+        # all_possibilities = (list(itertools.product(colour_numbers, repeat=4)))
+        # all_possibilities = [list(i) for i in all_possibilities]
+        # print(all_possibilities)
+        # for i in all_possibilities
+        #     if guess.index(i) == code_answer.index(i):
+        #         black += 1
+        #     else:
+        #         print(black)
+        # print('wrong!')
+check_guess(generate_random_code(), guess)
 
 
-# Randomize feedback
+# if statement voor pinkleuren met for loop
+
+
