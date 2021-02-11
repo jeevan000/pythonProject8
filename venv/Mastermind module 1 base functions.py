@@ -1,5 +1,5 @@
 import random
-import itertools
+# import itertools
 # valid_chars = ['0', '1', '2', '3', '4', '5']
 # all_combinations = (list(itertools.product(valid_chars, repeat=4)))
 # all_combinations = [list(i) for i in all_combinations]
@@ -28,7 +28,7 @@ def generate_all_code():
 # generate_random_code()
 
 guess = ['3223']
-def check_guess(code_answer, player_input):
+def check_guess(code_answer, guess):
     # input_code = list(input("Enter your guess:"))
     # print(input_code)
     all_possibilities = generate_all_code()
@@ -39,24 +39,35 @@ def check_guess(code_answer, player_input):
     else: #>>>>>>>>>>>>>>> This else statement provides feedback for wrong answers
         # colour_numbers = ['0', '1', '2', '3', '4', '5']
 
-        black, white = 0, 0
 
         """ Create two more lists to store the individual numbers of the code_answer and the guess in to compare
         step by step if the codes are aligned and another list to insert the net amount of black and white pins into."""
         black_list = []
         white_list = []
-        result = []
+        result = [0, 0]
         for i in range(len(guess[0])):
 
-            print(f'this is i:{i}')
-            print(f'this is guess:{guess}')
-            print(f'this is code_answer:{code_answer}')
-            print(code_answer)
+            # print(f'this is i:{i}')
+            # print(f'this is guess:{guess[0][i]}')
+            # print(f'this is code_answer:{code_answer[0][i]}')
+            # print(code_answer)
             if guess[0][i] == code_answer[0][i]:
-                black_list.append()
-            else:
-                list_guess.append(guess[0][i])
-                list_code_answer.append(code_answer[0][i])
+                result[0] += 1
+                black_list.append(i)
+
+        code_answer_copy = code_answer[::] #-----> copy list to not change the original code_answer
+        for i in black_list:
+            print(code_answer_copy[0][i])
+            code_answer_copy.remove(code_answer[0][i])
+            print(code_answer_copy)
+        for i in range(len(guess[0])):
+            if i not in black_list:
+                if guess[0][i] in code_answer_copy:
+                    result[1] += 1
+                    code_answer_copy.remove(guess[0][i])
+        return print(result)
+        # for j in black_list:
+
         # print(list_guess)
         # print(list_code_answer)
 
