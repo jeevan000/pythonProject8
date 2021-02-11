@@ -32,7 +32,7 @@ def check_guess(code_answer, player_input):
     # input_code = list(input("Enter your guess:"))
     # print(input_code)
     all_possibilities = generate_all_code()
-    code_answer = all_possibilities[random.randint(0, len(all_possibilities))]
+    code_answer = all_possibilities[random.randint(1, len(all_possibilities)-1)]
     print(code_answer)
     if code_answer == guess: #------ compare input to auto-generated code
         print("Congratulations, you've guessed the code!")
@@ -43,17 +43,20 @@ def check_guess(code_answer, player_input):
 
         """ Create two more lists to store the individual numbers of the code_answer and the guess in to compare
         step by step if the codes are aligned and another list to insert the net amount of black and white pins into."""
-        list_guess = []
-        list_code_answer = []
+        black_list = []
+        white_list = []
         result = []
-        for i in range(len(all_possibilities[0])):
+        for i in range(len(guess[0])):
 
-
-            if guess[i][i] == code_answer[i][i]:
-                black += 1
+            print(f'this is i:{i}')
+            print(f'this is guess:{guess}')
+            print(f'this is code_answer:{code_answer}')
+            print(code_answer)
+            if guess[0][i] == code_answer[0][i]:
+                black_list.append()
             else:
-                list_guess.append(guess[i])
-                list_code_answer.append(code_answer[i])
+                list_guess.append(guess[0][i])
+                list_code_answer.append(code_answer[0][i])
         # print(list_guess)
         # print(list_code_answer)
 
@@ -73,3 +76,8 @@ check_guess(generate_all_code(), guess)
 # if statement voor pinkleuren met for loop
 
 
+# pseudo simpel algoritme:
+#     maak mogelijke combinaties
+#     kies de eerste als gok
+#     evalueer de gok
+# reduceer mogelijke combinatie
