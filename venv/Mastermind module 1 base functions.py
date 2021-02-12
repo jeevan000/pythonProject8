@@ -12,9 +12,9 @@ def generate_all_code():
                 for y in range(0, 6):
                     all_possibilities.append(str(i) + str(j) + str(x) + str(y))
     print(range(len(all_possibilities[0])))
-    code_answer = [all_possibilities[random.randint(0, len(all_possibilities))]]
+    secret = [all_possibilities[random.randint(0, len(all_possibilities))]]
     # print(code_answer)
-    return all_possibilities, code_answer
+    return secret
 
     # code_answer = [] # Create list to insert all possibilities into
     #
@@ -28,13 +28,11 @@ def generate_all_code():
 # generate_random_code()
 
 guess = ['3223']
-def check_guess(code_answer, guess):
+def check_guess(secret, guess):
     # input_code = list(input("Enter your guess:"))
     # print(input_code)
-    all_possibilities = generate_all_code()
-    code_answer = all_possibilities[random.randint(1, len(all_possibilities)-1)]
-    print(code_answer)
-    if code_answer == guess: #------ compare input to auto-generated code
+    print(secret)
+    if secret == guess: #------ compare input to auto-generated code
         print("Congratulations, you've guessed the code!")
     else: #>>>>>>>>>>>>>>> This else statement provides feedback for wrong answers
         # colour_numbers = ['0', '1', '2', '3', '4', '5']
@@ -43,37 +41,40 @@ def check_guess(code_answer, guess):
         """ Create two more lists to store the individual numbers of the code_answer and the guess in to compare
         step by step if the codes are aligned and another list to insert the net amount of black and white pins into."""
         black_list = []
+        black_list_index = []
         white_list = []
+        white_list_index = []
         result = [0, 0]
         for i in range(len(guess[0])):
-
             # print(f'this is i:{i}')
             # print(f'this is guess:{guess[0][i]}')
             # print(f'this is code_answer:{code_answer[0][i]}')
             # print(code_answer)
-            if guess[0][i] == code_answer[0][i]:
+            if guess[0][i] == secret[0][i]:
                 result[0] += 1
                 black_list.append(i)
-
-        code_answer_copy = code_answer[::] #-----> copy list to not change the original code_answer
-        for i in black_list:
-            print(code_answer_copy[0][i])
-            code_answer_copy.remove(code_answer[0][i])
-            print(code_answer_copy)
+        print(f'this is black_list after append{black_list}')
+                # black_list_index.append()
+        # code_answer_copy = secret[::] #-----> copy list to not change the original code_answer
+        # for i in black_list:
+        #     print(code_answer_copy[0][i])
+        #     code_answer_copy.remove(code_answer[0][i])
+        #     print(code_answer_copy)
         for i in range(len(guess[0])):
-            if i not in black_list:
-                if guess[0][i] in code_answer_copy:
-                    result[1] += 1
-                    code_answer_copy.remove(guess[0][i])
-        return print(result)
+            if i not in black_list and guess[0][i] in secret[0]:
+                result[1] += 1
+                    # code_answer_copy.remove(guess[0][i])
+
+        return result
+print(check_guess(generate_all_code(), guess))
         # for j in black_list:
 
         # print(list_guess)
         # print(list_code_answer)
-
         # for i in all_possibilities:
         # all_possibilities = (list(itertools.product(colour_numbers, repeat=4)))
-        # all_possibilities = [list(i) for i in all_possibilities]
+        # all_possibilities = [list(i) for i in all_possibilitie
+
         # print(all_possibilities)
         # for i in all_possibilities
         #     if guess.index(i) == code_answer.index(i):
@@ -81,7 +82,8 @@ def check_guess(code_answer, guess):
         #     else:
         #         print(black)
         # print('wrong!')
-check_guess(generate_all_code(), guess)
+
+
 
 
 # if statement voor pinkleuren met for loop
