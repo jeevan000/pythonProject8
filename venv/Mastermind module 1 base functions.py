@@ -11,8 +11,8 @@ def generate_all_code():
             for x in range(0, 6):
                 for y in range(0, 6):
                     all_possibilities.append(str(i) + str(j) + str(x) + str(y))
-    print(range(len(all_possibilities[0])))
-    secret = [all_possibilities[random.randint(0, len(all_possibilities))]]
+    # print(range(len(all_possibilities[0])))
+    secret = all_possibilities[random.randint(0, len(all_possibilities))]
     # print(code_answer)
     return secret
 
@@ -27,7 +27,7 @@ def generate_all_code():
     # return code_answer
 # generate_random_code()
 
-guess = ['3223']
+guess = '3223'
 def check_guess(secret, guess):
     # input_code = list(input("Enter your guess:"))
     # print(input_code)
@@ -45,14 +45,18 @@ def check_guess(secret, guess):
         white_list = []
         white_list_index = []
         result = [0, 0]
-        for i in range(len(guess[0])):
+        for i in range(len(guess)):
             # print(f'this is i:{i}')
             # print(f'this is guess:{guess[0][i]}')
             # print(f'this is code_answer:{code_answer[0][i]}')
             # print(code_answer)
-            if guess[0][i] == secret[0][i]:
+            if guess[i] == secret[i]:
                 result[0] += 1
-                black_list.append(i)
+                black_list.append(guess[i])
+                black_list_index.append(i)
+
+        print(black_list_index)
+
         print(f'this is black_list after append{black_list}')
                 # black_list_index.append()
         # code_answer_copy = secret[::] #-----> copy list to not change the original code_answer
@@ -60,9 +64,13 @@ def check_guess(secret, guess):
         #     print(code_answer_copy[0][i])
         #     code_answer_copy.remove(code_answer[0][i])
         #     print(code_answer_copy)
-        for i in range(len(guess[0])):
-            if i not in black_list and guess[0][i] in secret[0]:
+        for i in range(len(guess)):
+            if i not in black_list and guess[i] in secret:
                 result[1] += 1
+                white_list.append(guess[i])
+                white_list_index.append(i)
+        print(white_list)
+        print(white_list_index)
                     # code_answer_copy.remove(guess[0][i])
 
         return result
@@ -82,11 +90,6 @@ print(check_guess(generate_all_code(), guess))
         #     else:
         #         print(black)
         # print('wrong!')
-
-
-
-
-# if statement voor pinkleuren met for loop
 
 
 # pseudo simpel algoritme:
