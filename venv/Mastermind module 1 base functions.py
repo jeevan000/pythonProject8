@@ -55,9 +55,9 @@ def check_guess(secret, guess):
                 black_list.append(guess[i])
                 black_list_index.append(i)
 
-        print(black_list_index)
 
-        print(f'this is black_list after append{black_list}')
+        print(f'black_list: {black_list}')
+        print(f'blacklistindex: {black_list_index}')
                 # black_list_index.append()
         # code_answer_copy = secret[::] #-----> copy list to not change the original code_answer
         # for i in black_list:
@@ -65,12 +65,12 @@ def check_guess(secret, guess):
         #     code_answer_copy.remove(code_answer[0][i])
         #     print(code_answer_copy)
         for i in range(len(guess)):
-            if i not in black_list and guess[i] in secret:
+            if guess[i] not in black_list and guess[i] in secret:
                 result[1] += 1
                 white_list.append(guess[i])
                 white_list_index.append(i)
-        print(white_list)
-        print(white_list_index)
+        print(f'whitelist: {white_list}')
+        print(f'whitelistindex: {white_list_index}')
                     # code_answer_copy.remove(guess[0][i])
 
         return result
