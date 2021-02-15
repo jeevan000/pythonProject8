@@ -31,4 +31,4 @@ Sources:Boss, R. (2021, 19 januari). HU Structured Programming - Mastermind. You
 
 Libraries used: 
 random
-
+itertools
